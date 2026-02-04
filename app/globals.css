@@ -1,0 +1,499 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-signal: var(--signal);
+  --color-signal-dim: var(--signal-dim);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* ================================================================
+   COLOR SYSTEM — VOID BLACK + SIGNAL RED
+   ================================================================ */
+
+:root {
+  --background: #0A0A0A;
+  --foreground: #E5E5E5;
+  --card: #141414;
+  --card-foreground: #E5E5E5;
+  --muted: #1A1A1A;
+  --muted-foreground: #6B6B6B;
+  --border: #2A2A2A;
+  --signal: #D42B2B;
+  --signal-dim: #8B1A1A;
+  --grid: rgba(255, 255, 255, 0.04);
+}
+
+/* ================================================================
+   BASE
+   ================================================================ */
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--signal);
+  color: var(--background);
+}
+
+/* ================================================================
+   TYPOGRAPHY SYSTEM
+   ================================================================ */
+
+/* Spaced branding — "CODE BREW" */
+.text-spaced {
+  font-size: 0.6875rem;
+  font-weight: 400;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-family: var(--font-geist-mono);
+}
+
+/* Massive display — hero headline */
+.text-display {
+  font-size: clamp(3rem, 12vw, 8rem);
+  font-weight: 600;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  font-family: var(--font-geist-mono);
+}
+
+/* Section headline */
+.text-headline {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Mono technical label */
+.text-label {
+  font-size: 0.625rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted-foreground);
+  font-family: var(--font-geist-mono);
+}
+
+/* Large stat numbers */
+.text-stat {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--signal);
+  font-family: var(--font-geist-sans);
+}
+
+/* Catalog numbers */
+.text-catalog {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--signal);
+  font-family: var(--font-geist-mono);
+}
+
+/* ================================================================
+   LAYOUT — CONTAINER + SECTIONS
+   ================================================================ */
+
+.container-bordered {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+  position: relative;
+}
+
+@media (max-width: 1100px) {
+  .container-bordered {
+    border-left: none;
+    border-right: none;
+  }
+}
+
+.section-border {
+  border-bottom: 1px solid var(--border);
+}
+
+/* ================================================================
+   DECORATIVE — STYLIZED LINES
+   ================================================================ */
+
+/* Diamond marker: ◆ */
+.line-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--muted-foreground);
+  font-size: 0.625rem;
+}
+
+.line-marker::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--signal);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.line-marker::after {
+  content: "";
+  width: 60px;
+  height: 1px;
+  background: var(--border);
+  flex-shrink: 0;
+}
+
+/* Full-width decorative line with diamond */
+.line-full {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.line-full::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  background: var(--signal);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.line-full::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+/* Connecting dash line — for label ——————— value pairs */
+.line-connect {
+  flex: 1;
+  height: 1px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--border) 0px,
+    var(--border) 4px,
+    transparent 4px,
+    transparent 8px
+  );
+  min-width: 20px;
+}
+
+/* Signal accent line */
+.line-signal {
+  height: 1px;
+  background: linear-gradient(90deg, var(--signal), transparent);
+}
+
+/* Center accent line */
+.line-signal-center {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--signal), transparent);
+}
+
+/* Calibration marks */
+.calibration {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+}
+
+.calibration-tick {
+  width: 1px;
+  background: var(--border);
+}
+
+.calibration-tick.active {
+  background: var(--signal);
+}
+
+/* ================================================================
+   DECORATIVE — GRID OVERLAY
+   ================================================================ */
+
+.grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ================================================================
+   DECORATIVE — FILM GRAIN
+   ================================================================ */
+
+.grain-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.035;
+}
+
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+}
+
+/* ================================================================
+   DECORATIVE — CORNER BRACKETS
+   ================================================================ */
+
+.bracket-tl {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid var(--signal);
+  border-left: 1px solid var(--signal);
+  opacity: 0.4;
+}
+
+.bracket-tr {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-top: 1px solid var(--signal);
+  border-right: 1px solid var(--signal);
+  opacity: 0.4;
+}
+
+.bracket-bl {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom: 1px solid var(--signal);
+  border-left: 1px solid var(--signal);
+  opacity: 0.4;
+}
+
+.bracket-br {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-bottom: 1px solid var(--signal);
+  border-right: 1px solid var(--signal);
+  opacity: 0.4;
+}
+
+/* ================================================================
+   DECORATIVE — STATUS & DOTS
+   ================================================================ */
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  flex-shrink: 0;
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Diamond marker inline */
+.diamond {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  background: var(--signal);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+/* ================================================================
+   ANIMATIONS
+   ================================================================ */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-in {
+  animation: fadeIn 0.6s ease forwards;
+  opacity: 0;
+}
+
+.delay-1 { animation-delay: 0.08s; }
+.delay-2 { animation-delay: 0.16s; }
+.delay-3 { animation-delay: 0.24s; }
+.delay-4 { animation-delay: 0.32s; }
+.delay-5 { animation-delay: 0.40s; }
+.delay-6 { animation-delay: 0.48s; }
+.delay-7 { animation-delay: 0.56s; }
+.delay-8 { animation-delay: 0.64s; }
+
+/* ================================================================
+   INTERACTIVE
+   ================================================================ */
+
+.btn-signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: var(--signal);
+  color: var(--background);
+  border: 1px solid var(--signal);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-family: var(--font-geist-mono);
+}
+
+.btn-signal:hover {
+  background: var(--signal-dim);
+  border-color: var(--signal-dim);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.75rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: transparent;
+  color: var(--muted-foreground);
+  border: 1px solid var(--border);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  font-family: var(--font-geist-mono);
+}
+
+.btn-outline:hover {
+  border-color: var(--signal);
+  color: var(--signal);
+}
+
+/* ================================================================
+   GHOST TEXT — BACKGROUND BLEED
+   ================================================================ */
+
+.ghost-text {
+  position: absolute;
+  font-size: clamp(6rem, 20vw, 16rem);
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--foreground);
+  opacity: 0.02;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: var(--font-geist-sans);
+  line-height: 1;
+  user-select: none;
+}
+
+/* ================================================================
+   EVENT CARD
+   ================================================================ */
+
+.event-card {
+  position: relative;
+  border: 1px solid var(--border);
+  background: var(--card);
+  padding: 1.25rem;
+  transition: border-color 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 140px;
+}
+
+.event-card:hover {
+  border-color: var(--signal);
+}
+
+.event-card:hover .event-card-line {
+  transform: scaleX(1);
+}
+
+.event-card-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* ================================================================
+   CITY ROW
+   ================================================================ */
+
+.city-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--border);
+  transition: all 0.15s ease;
+}
+
+.city-row:hover {
+  padding-left: 0.5rem;
+}
+
+.city-row:hover .city-name {
+  color: var(--signal);
+}
+
+.city-row:last-child {
+  border-bottom: none;
+}
+
+.city-name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.city-country {
+  font-size: 0.6875rem;
+  color: var(--muted-foreground);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-geist-mono);
+  white-space: nowrap;
+}
