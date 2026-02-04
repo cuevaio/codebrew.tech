@@ -16,6 +16,7 @@ import { join } from "node:path";
 
 const ROOT = join(import.meta.dirname, "..");
 const PUBLIC = join(ROOT, "public");
+const APP = join(ROOT, "app");
 
 // ── Brand tokens ──────────────────────────────────────────────
 const BG = "#0A0A0A";
@@ -197,8 +198,8 @@ async function generateFavicon(): Promise<void> {
   }
 
   const ico = await pngToIco(pngs);
-  writeFileSync(join(PUBLIC, "favicon.ico"), ico);
-  console.log("  ✓ favicon.ico (16, 32, 48px)");
+  writeFileSync(join(APP, "favicon.ico"), ico);
+  console.log("  ✓ app/favicon.ico (16, 32, 48px)");
 }
 
 // ── Main ──────────────────────────────────────────────────────
