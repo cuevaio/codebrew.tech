@@ -34,12 +34,21 @@ export const metadata: Metadata = {
     siteName: "Code Brew",
     type: "website",
     locale: "en_US",
+    images: [
+      {
+        url: "/og.png",
+        width: 1200,
+        height: 630,
+        alt: "Code Brew — Monthly Tech Meetups",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Code Brew — Monthly Tech Meetups",
     description:
       "Building Latin America's most engaged tech community, one coffee at a time.",
+    images: ["/og-twitter.png"],
   },
 };
 
