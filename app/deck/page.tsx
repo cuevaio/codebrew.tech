@@ -397,7 +397,10 @@ const SLIDES = [
             <span className="text-label">Let&apos;s Talk</span>
           </div>
 
-          <h2 className="text-display text-2xl sm:text-3xl md:text-5xl mb-4 max-w-lg">
+          <h2
+            className="text-display mb-4 max-w-lg"
+            style={{ fontSize: "clamp(1.5rem, min(11vw, 7vh), 5.5rem)" }}
+          >
             Connect with tech talent across Latin America.
           </h2>
 
