@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Coffee } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Globe } from "@/components/globe";
 import { GithubBadge } from "@/components/github-badge";
@@ -107,13 +107,13 @@ export default function HomePage() {
                 <h1 className="text-display">
                   <span className="inline-flex items-center">
                     CO
-                    <span className="inline-block w-8 sm:w-16 h-[2px] bg-signal mx-1 sm:mx-2 translate-y-[-2px]" />
+                    <Coffee className="w-6 h-6 sm:w-10 sm:h-10 text-signal mx-1 sm:mx-2" />
                     DE
                   </span>
                   <br />
                   <span className="inline-flex items-center">
                     BR
-                    <span className="inline-block w-8 sm:w-16 h-[2px] bg-signal mx-1 sm:mx-2 translate-y-[-2px]" />
+                    <Coffee className="w-6 h-6 sm:w-10 sm:h-10 text-signal mx-1 sm:mx-2" />
                     EW
                   </span>
                 </h1>
