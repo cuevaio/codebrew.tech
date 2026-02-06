@@ -402,6 +402,46 @@ export default function HomePage() {
         </section>
 
         {/* ════════════════════════════════════════
+            PARTNERS
+           ════════════════════════════════════════ */}
+        <section className="section-border relative overflow-hidden">
+          <div className="grid-overlay" style={{ opacity: 0.5 }} />
+
+          <div className="relative z-10 px-5 sm:px-8 py-14 sm:py-20 text-center">
+            <div className="flex justify-center mb-6">
+              <div className="line-marker">
+                <span className="text-label">Partners</span>
+              </div>
+            </div>
+
+            <h2 className="text-headline text-foreground mb-4">
+              Become a Partner
+            </h2>
+
+            <div className="flex justify-center mb-6">
+              <div className="line-signal-center w-48" />
+            </div>
+
+            <div className="max-w-md mx-auto mb-8">
+              <p className="text-xs text-muted-foreground font-mono leading-relaxed">
+                We&apos;re looking for organizations that share our mission of
+                empowering tech communities across Latin America and beyond.
+                Sponsor events, provide venues, or collaborate with us to
+                shape the future of tech in the region.
+              </p>
+            </div>
+
+            <a
+              href="/deck"
+              className="btn-signal"
+            >
+              View Partnership Deck
+              <ArrowRight className="size-3.5" />
+            </a>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
             CTA — NEXT CHAPTER
            ════════════════════════════════════════ */}
         <section className="section-border relative overflow-hidden">
