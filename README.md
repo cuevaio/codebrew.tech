@@ -1,10 +1,31 @@
 # Code Brew
 
+<div align="center">
+
 [![GitHub](https://img.shields.io/badge/GitHub-crafter--station-181717?logo=github)](https://github.com/crafter-station)
+[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.9-blue?logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-4-38bdf8?logo=tailwind-css)](https://tailwindcss.com/)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)]()
 
 **Monthly meetups for software engineers, designers, founders, and tech professionals across Latin America and Spain.**
 
-Visit the live site at [codebrew.tech](https://codebrew.tech)
+[Visit Website](https://codebrew.tech) • [Partnership Deck](https://codebrew.tech/deck) • [Join Community](https://crafters.chat/)
+
+</div>
+
+---
+
+## 🌟 Features
+
+- **🌍 Interactive 3D Globe** - Explore Code Brew cities with an interactive globe powered by COBE
+- **📊 Live Stats** - Real-time GitHub stars and community metrics
+- **🎨 Modern Design System** - Void black + signal red brutalist design language
+- **📱 Fully Responsive** - Optimized for all devices from mobile to desktop
+- **🎭 Partnership Deck** - Interactive slide deck with keyboard and touch navigation
+- **⚡ Performance** - Built with Next.js 16 App Router for optimal speed
+- **🎬 Smooth Animations** - Powered by Motion for delightful interactions
+- **♿ Accessible** - Following web accessibility best practices
 
 ---
 
@@ -98,24 +119,90 @@ npm start
 npm run lint
 ```
 
+### Asset Generation
+
+Generate brand assets (OG images, favicon):
+
+```bash
+bun scripts/generate-assets.ts
+```
+
+This creates:
+- `public/og.png` (1200×630 Open Graph image)
+- `public/og-twitter.png` (1200×600 Twitter card)
+- `app/favicon.ico` (multi-size icon: 16, 32, 48px)
+
+---
+
+## Deployment
+
+This project is optimized for deployment on [Vercel](https://vercel.com):
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/crafter-station/codebrew.tech)
+
+The site automatically deploys on push to the main branch. No environment variables are required for basic deployment.
+
 ---
 
 ## Project Structure
 
 ```
 codebrew.tech/
-├── app/              # Next.js app directory
-│   ├── page.tsx      # Home page
-│   ├── deck/         # Partnership deck
-│   └── layout.tsx    # Root layout
-├── components/       # React components
-│   ├── globe.tsx     # Interactive 3D globe
-│   ├── footer.tsx    # Footer component
-│   └── ...
-├── public/           # Static assets
-├── lib/              # Utilities
-└── scripts/          # Build scripts
+├── app/                      # Next.js app directory
+│   ├── page.tsx              # Landing page with hero, stats, events
+│   ├── deck/                 # Partnership deck presentation
+│   │   └── page.tsx          # Interactive slide deck
+│   ├── layout.tsx            # Root layout with metadata
+│   ├── globals.css           # Global styles & design system
+│   └── favicon.ico           # Generated favicon
+├── components/               # React components
+│   ├── globe.tsx             # Interactive 3D globe (COBE)
+│   ├── footer.tsx            # Footer with link columns
+│   ├── github-badge.tsx      # Live GitHub star counter
+│   └── logos/                # SVG logo components
+│       ├── crafter-station.tsx
+│       └── github.tsx
+├── lib/
+│   └── utils.ts              # Tailwind class merge utility
+├── public/                   # Static assets
+│   ├── og.png                # Open Graph image
+│   ├── og-twitter.png        # Twitter card image
+│   └── *.svg                 # Icon assets
+├── scripts/
+│   └── generate-assets.ts    # Brand asset generator
+├── package.json              # Dependencies & scripts
+├── tsconfig.json             # TypeScript configuration
+├── next.config.ts            # Next.js configuration
+├── postcss.config.mjs        # PostCSS with Tailwind
+└── eslint.config.mjs         # ESLint configuration
 ```
+
+---
+
+## Design System
+
+Code Brew uses a custom brutalist design system with the following principles:
+
+### Color Palette
+- **Void Black** (`#0A0A0A`) - Background
+- **Signal Red** (`#D42B2B`) - Primary accent
+- **Void White** (`#E5E5E5`) - Foreground text
+- **Muted Gray** (`#6B6B6B`) - Secondary text
+- **Border** (`#2A2A2A`) - Structural elements
+
+### Key Components
+- **Grid Overlay** - Technical blueprint aesthetic
+- **Corner Brackets** - Architectural framing
+- **Diamond Markers** - Navigation & emphasis
+- **Calibration Ticks** - Precision detail
+- **Film Grain** - Analog texture
+- **Ghost Text** - Large background typography
+
+### Typography
+- **Headings**: Geist Sans (system font fallback)
+- **Body & UI**: Geist Mono (monospace)
+- Responsive sizing with clamp()
+- Uppercase tracking for labels
 
 ---
 
@@ -131,24 +218,46 @@ We welcome contributions! If you'd like to improve the Code Brew website:
 
 ---
 
-## Join the Community
+## 🤝 Join the Community
 
-- **Website**: [codebrew.tech](https://codebrew.tech)
-- **Discord**: [crafters.chat](https://crafters.chat/)
-- **GitHub**: [@crafter-station](https://github.com/crafter-station)
+<div align="center">
+
+| Platform | Link |
+|----------|------|
+| 🌐 **Website** | [codebrew.tech](https://codebrew.tech) |
+| 💬 **Discord** | [crafters.chat](https://crafters.chat/) |
+| 🐙 **GitHub** | [@crafter-station](https://github.com/crafter-station) |
+| 📱 **WhatsApp** | [Contact us](https://wa.me/51912851377?text=Hi!%20I'm%20interested%20in%20Code%20Brew) |
+
+</div>
 
 ---
 
-## Partnership
+## 🤝 Partnership
 
-Interested in sponsoring or partnering with Code Brew? View our [partnership deck](/deck) or reach out through [crafters.chat](https://crafters.chat/).
+Interested in sponsoring or partnering with Code Brew? 
+
+- 🎯 View our [partnership deck](https://codebrew.tech/deck)
+- 💼 Contact us via [WhatsApp](https://wa.me/51912851377?text=Hi!%20I'm%20interested%20in%20partnering%20with%20Code%20Brew)
+- 💬 Join the community at [crafters.chat](https://crafters.chat/)
+
+### Partnership Tiers
+- **Venue Partner**: Host our monthly event with guaranteed foot traffic
+- **Sponsor**: Logo placement across all event materials
+- **Exclusive Partner**: Co-branding and deep community integration
 
 ---
 
-## License
+## 📄 License
 
 This project is maintained by [Crafter Station](https://github.com/crafter-station).
 
 ---
 
-**Est. 2024** · Built with care for the tech community
+<div align="center">
+
+**Est. 2024** · Built with ❤️ for the tech community
+
+[🔝 Back to top](#code-brew)
+
+</div>
