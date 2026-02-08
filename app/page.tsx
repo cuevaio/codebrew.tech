@@ -2,6 +2,7 @@ import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Globe } from "@/components/globe";
 import { GithubBadge } from "@/components/github-badge";
+import { CalEmbed } from "@/components/cal-embed";
 
 const EVENTS = [
   { id: "01", title: "Lima #1", city: "Lima", country: "Peru", date: "Aug 2024" },
@@ -65,6 +66,12 @@ export default function HomePage() {
                 className="text-label hover:text-signal transition-colors hidden sm:block"
               >
                 Events
+              </a>
+              <a
+                href="#schedule"
+                className="text-label hover:text-signal transition-colors hidden sm:block"
+              >
+                Schedule
               </a>
               <GithubBadge />
               <a
@@ -396,6 +403,44 @@ export default function HomePage() {
                     />
                   ))}
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ════════════════════════════════════════
+            SCHEDULE
+           ════════════════════════════════════════ */}
+        <section id="schedule" className="section-border relative overflow-hidden">
+          <div className="grid-overlay" style={{ opacity: 0.3 }} />
+
+          <div className="relative z-10 px-5 sm:px-8 py-8 sm:py-12">
+            {/* Section header */}
+            <div className="flex justify-center mb-6">
+              <div className="line-marker">
+                <span className="text-label">Schedule</span>
+              </div>
+            </div>
+
+            <h2 className="text-headline text-foreground text-center mb-4">
+              Book a Meeting
+            </h2>
+
+            <div className="flex justify-center mb-6">
+              <div className="line-signal-center w-48" />
+            </div>
+
+            <div className="max-w-md mx-auto mb-8 text-center">
+              <p className="text-xs text-muted-foreground font-mono leading-relaxed">
+                Want to chat about partnerships, sponsorships, or bringing Code
+                Brew to your city? Schedule a time to connect with our team.
+              </p>
+            </div>
+
+            {/* Cal.com embed */}
+            <div className="max-w-4xl mx-auto">
+              <div className="border border-border rounded-sm overflow-hidden bg-background/50 backdrop-blur-sm">
+                <CalEmbed calLink="team/codebrew/meet" className="w-full" />
               </div>
             </div>
           </div>
