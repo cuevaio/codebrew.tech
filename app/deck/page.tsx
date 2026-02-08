@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { ArrowLeft, ArrowRight, ArrowUpRight, Home, MessageCircle } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, Calendar, Home, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 /* ================================================================
@@ -411,10 +411,17 @@ const SLIDES = [
 
           <div className="flex flex-wrap items-center gap-3 mb-10">
             <a
+              href="/schedule"
+              className="btn-signal"
+            >
+              <Calendar className="size-3.5" />
+              Schedule a Call
+            </a>
+            <a
               href="https://wa.me/51912851377?text=Hi!%20I'm%20interested%20in%20partnering%20with%20Code%20Brew."
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-signal"
+              className="btn-outline"
             >
               <MessageCircle className="size-3.5" />
               WhatsApp Us
@@ -427,15 +434,6 @@ const SLIDES = [
             >
               Join Community
               <ArrowUpRight className="size-3" />
-            </a>
-            <a
-              href="https://crafterstation.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-outline"
-            >
-              Crafter Station
-              <ArrowRight className="size-3" />
             </a>
           </div>
 
@@ -592,8 +590,15 @@ export default function DeckPage() {
               ))}
             </div>
 
-            {/* Right — WhatsApp + arrows */}
+            {/* Right — Schedule + WhatsApp + arrows */}
             <div className="flex items-center gap-0.5 sm:gap-1">
+              <Link
+                href="/schedule"
+                className="p-1.5 sm:p-2 text-muted-foreground hover:text-signal transition-colors"
+                title="Schedule a call"
+              >
+                <Calendar className="size-3.5 sm:size-4" />
+              </Link>
               <a
                 href="https://wa.me/51912851377?text=Hi!%20I'm%20interested%20in%20partnering%20with%20Code%20Brew."
                 target="_blank"

@@ -1,4 +1,4 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Calendar } from "lucide-react";
 import { Footer } from "@/components/footer";
 import { Globe } from "@/components/globe";
 import { GithubBadge } from "@/components/github-badge";
@@ -65,6 +65,12 @@ export default function HomePage() {
                 className="text-label hover:text-signal transition-colors hidden sm:block"
               >
                 Events
+              </a>
+              <a
+                href="/schedule"
+                className="text-label hover:text-signal transition-colors hidden sm:block"
+              >
+                Schedule
               </a>
               <GithubBadge />
               <a
@@ -431,13 +437,22 @@ export default function HomePage() {
               </p>
             </div>
 
-            <a
-              href="/deck"
-              className="btn-signal"
-            >
-              View Partnership Deck
-              <ArrowRight className="size-3.5" />
-            </a>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <a
+                href="/schedule"
+                className="btn-signal"
+              >
+                <Calendar className="size-3.5" />
+                Schedule a Call
+              </a>
+              <a
+                href="/deck"
+                className="btn-outline"
+              >
+                View Partnership Deck
+                <ArrowRight className="size-3.5" />
+              </a>
+            </div>
           </div>
         </section>
 
