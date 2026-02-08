@@ -32,6 +32,13 @@ const FOOTER_LINKS = {
       { label: "LinkedIn", href: "https://linkedin.com/company/crafter-station", external: true },
     ],
   },
+  partners: {
+    title: "Partners",
+    links: [
+      { label: "Schedule a Call", href: "/schedule" },
+      { label: "Partnership Deck", href: "/deck" },
+    ],
+  },
   about: {
     title: "About",
     links: [
@@ -53,7 +60,7 @@ export function Footer() {
         {/* Top grid: links left, tagline right */}
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-16">
           {/* Link columns — 2 cols on mobile, 4 on sm+ */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-5 sm:gap-x-8 gap-y-8">
+          <div className="grid grid-cols-2 sm:grid-cols-5 gap-x-5 sm:gap-x-6 gap-y-8">
             {Object.values(FOOTER_LINKS).map((section) => (
               <div key={section.title}>
                 <div className="flex items-center gap-2 mb-3 sm:mb-4">
